@@ -33,5 +33,13 @@ plugins {
 }
 
 include(":composeApp")
-include(":androidApp")
 include(":core-network")
+
+include(":feature:details:domain")
+include(":feature:details:data")
+include(":feature:details:ui")
+
+include(":feature:search:domain")
+include(":feature:search:data")
+include(":feature:search:ui")
+include(":shared")

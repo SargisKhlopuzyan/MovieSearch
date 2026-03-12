@@ -7,7 +7,6 @@ plugins {
     alias(libs.plugins.kotlinx.serialization)
 }
 
-// https://api.themoviedb.org/3/search/movie
 kotlin {
     androidTarget {
         @OptIn(ExperimentalKotlinGradlePluginApi::class)
@@ -21,20 +20,20 @@ kotlin {
 
     jvm()
 
-//    targets.withType<org.jetbrains.kotlin.gradle.plugin.mpp.KotlinNativeTarget> {
-//        binaries.all {
-//            freeCompilerArgs += "-Xdisable-phases=TestRunner" // disable tests
-//        }
-//    }
-
     sourceSets {
         androidMain.dependencies {
             implementation(libs.ktor.client.android)
         }
         commonMain.dependencies {
+            implementation(projects.feature.details.domain)
+            implementation(projects.coreNetwork)
+
+            implementation(libs.kotlinx.serialization)
             implementation(libs.ktor.client.core)
             implementation(libs.ktor.client.content.negotiation)
             implementation(libs.ktor.client.serialization)
+
+            implementation(libs.koin.core)
         }
         commonTest.dependencies {
             implementation(libs.kotlin.test)
@@ -50,14 +49,12 @@ kotlin {
 }
 
 android {
-    namespace = "com.sargis.bookpedia.corenetwork"
+    namespace = "com.sargis.bookpedia.feature.search.data"
     compileSdk = libs.versions.android.compileSdk.get().toInt()
-
     compileOptions {
         sourceCompatibility = JavaVersion.VERSION_11
         targetCompatibility = JavaVersion.VERSION_11
     }
-
     defaultConfig {
         minSdk = libs.versions.android.minSdk.get().toInt()
     }
