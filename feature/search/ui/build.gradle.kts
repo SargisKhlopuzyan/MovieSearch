@@ -5,10 +5,10 @@ import org.jetbrains.kotlin.gradle.dsl.JvmTarget
 plugins {
     alias(libs.plugins.kotlinMultiplatform)
     alias(libs.plugins.androidLibrary)
-    alias(libs.plugins.kotlinx.serialization)
+//    alias(libs.plugins.kotlinx.serialization)
     alias(libs.plugins.composeCompiler)
 
-    alias(libs.plugins.native.coroutines)
+    alias(libs.plugins.native.coroutines) // this will expose viewmodel in form of state object in iOS side
 }
 
 kotlin {
@@ -26,6 +26,7 @@ kotlin {
 
     sourceSets {
 
+        // This is mentioned in kmp.observableviewmodel core GitHub repository
         all {
             languageSettings.optIn("kotlin.experimental.ExperimentalObjCName")
             languageSettings.optIn("kotlinx.cinterop.ExperimentalForeignApi")
