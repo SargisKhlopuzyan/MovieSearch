@@ -27,11 +27,11 @@ object HttpClientFactory {
         install(DefaultRequest.Plugin) {
             url {
                 host = "api.themoviedb.org"
-                protocol = URLProtocol.Companion.HTTPS
+                protocol = URLProtocol.HTTPS
             }
             header(
                 HttpHeaders.Authorization,
-                "Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJkYzcyNzdkNGE5MDhjNzg1M2Y5OTdmYjFkMGFkMDE5MSIsIm5iZiI6MTcyMDM2ODAyMC41MzMsInN1YiI6IjY2OGFiYjk0YWE5ZGUxNjE4OTlmMTQ0ZCIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.OyJOyJU_wKolDcEVSPKHovIc1zAg941ru2QULL66SkA"
+                "Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiI4NWUxYjQxZTk3YTA2N2NiYWU1ZjIyNDJkYWQ0ZTNkMCIsIm5iZiI6MTUwNTM5ODA2OS40ODUsInN1YiI6IjU5YmE4ZDM1YzNhMzY4MGQzNDAxMWM5OCIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.PauQR78HJwKNjIPLg5WAv7XsuyD9YXKbJXKDLS6pOZA"
             )
         }
     }

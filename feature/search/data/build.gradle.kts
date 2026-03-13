@@ -25,7 +25,7 @@ kotlin {
             implementation(libs.ktor.client.android)
         }
         commonMain.dependencies {
-            implementation(projects.feature.details.domain)
+            implementation(projects.feature.search.domain)
             implementation(projects.coreNetwork)
 
             implementation(libs.kotlinx.serialization)

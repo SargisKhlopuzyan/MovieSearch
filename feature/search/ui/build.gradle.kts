@@ -48,7 +48,7 @@ kotlin {
         }
 
         commonMain.dependencies {
-            implementation(projects.feature.details.domain)
+            implementation(projects.feature.search.domain)
             implementation(libs.kmp.observableviewmodel.core)
 
             implementation(libs.koin.core)

@@ -59,8 +59,8 @@ kotlin {
             api(projects.feature.details.ui)
 
             implementation(libs.koin.core)
-
         }
+
         commonTest.dependencies {
             implementation(libs.kotlin.test)
             implementation(libs.junit)

@@ -43,9 +43,9 @@ kotlin {
 
         commonMain.dependencies {
 
-            implementation(projects.feature.search.ui)
-            implementation(projects.feature.search.data)
-            implementation(projects.feature.search.domain)
+//            implementation(projects.feature.search.ui)
+//            implementation(projects.feature.search.data)
+//            implementation(projects.feature.search.domain)
 
             implementation(projects.shared)
 

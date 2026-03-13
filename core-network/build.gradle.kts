@@ -7,7 +7,6 @@ plugins {
     alias(libs.plugins.kotlinx.serialization)
 }
 
-// https://api.themoviedb.org/3/search/movie
 kotlin {
     androidTarget {
         @OptIn(ExperimentalKotlinGradlePluginApi::class)
