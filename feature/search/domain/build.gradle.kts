@@ -22,10 +22,10 @@ kotlin {
 
     sourceSets {
         commonMain.dependencies {
-            implementation(libs.kotlinx.serialization)
-            implementation(libs.ktor.client.core)
-            implementation(libs.ktor.client.content.negotiation)
-            implementation(libs.ktor.client.serialization)
+//            implementation(libs.kotlinx.serialization)
+//            implementation(libs.ktor.client.core)
+//            implementation(libs.ktor.client.content.negotiation)
+//            implementation(libs.ktor.client.serialization)
 
             implementation(libs.koin.core)
         }
