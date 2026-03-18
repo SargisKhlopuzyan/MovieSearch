@@ -5,6 +5,7 @@ import com.rickclephas.kmp.observableviewmodel.MutableStateFlow
 import com.rickclephas.kmp.observableviewmodel.ViewModel
 import com.rickclephas.kmp.observableviewmodel.launch
 import com.sargis.domain.usecase.SearchUseCase
+import kotlinx.coroutines.FlowPreview
 import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.flow.debounce
@@ -13,6 +14,7 @@ import kotlinx.coroutines.flow.filter
 import kotlinx.coroutines.flow.update
 
 // this will expose viewmodel in form of state object in iOS side
+@OptIn(FlowPreview::class)
 class SearchViewModel(
     private val searchUseCase: SearchUseCase
 ) : ViewModel() {
@@ -53,5 +55,4 @@ class SearchViewModel(
                 }
         }
     }
-
 }

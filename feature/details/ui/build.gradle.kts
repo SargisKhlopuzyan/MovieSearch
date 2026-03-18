@@ -1,14 +1,13 @@
-import org.jetbrains.compose.desktop.application.dsl.TargetFormat
-import org.jetbrains.compose.reload.core.Environment.Companion.application
 import org.jetbrains.kotlin.gradle.ExperimentalKotlinGradlePluginApi
 import org.jetbrains.kotlin.gradle.dsl.JvmTarget
 
 plugins {
     alias(libs.plugins.kotlinMultiplatform)
     alias(libs.plugins.androidLibrary)
-    alias(libs.plugins.kotlinx.serialization)
+    alias(libs.plugins.composeMultiplatform)
     alias(libs.plugins.composeCompiler)
-    alias(libs.plugins.native.coroutines)
+
+    alias(libs.plugins.native.coroutines) // this will expose viewmodel in form of state object in iOS side
 }
 
 kotlin {
@@ -26,25 +25,20 @@ kotlin {
 
     sourceSets {
 
+        // This is mentioned in kmp.observableviewmodel core GitHub repository
         all {
             languageSettings.optIn("kotlin.experimental.ExperimentalObjCName")
             languageSettings.optIn("kotlinx.cinterop.ExperimentalForeignApi")
         }
 
         androidMain.dependencies {
-            implementation(libs.coil)
-            implementation(libs.coil.ktor)
+            //            implementation(libs.coil)
+            //            implementation(libs.coil.ktor)
 
             implementation(libs.androidx.core.ktx)
             implementation(libs.androidx.appcompat)
-            implementation(libs.material)
             implementation(libs.androidx.activity.compose)
-            implementation(project.dependencies.platform(libs.androidx.compose.bom))
-            implementation(libs.compose.ui)
-            implementation(libs.compose.ui.tooling.preview)
-            implementation(libs.androidx.material3)
-            implementation(libs.compose.material)
-            implementation(libs.compose.runtime)
+            //            implementation(project.dependencies.platform(libs.androidx.compose.bom))
         }
 
         commonMain.dependencies {
@@ -55,16 +49,27 @@ kotlin {
             implementation(libs.koin.compose)
             implementation(libs.koin.compose.viewmodel)
 
+            implementation(libs.coil)
+            implementation(libs.coil.ktor)
+
+            implementation(project.dependencies.platform(libs.androidx.compose.bom))
+
+            //            implementation(libs.jetbrains.compose.ui.tooling)
+            implementation(libs.jetbrains.compose.ui.tooling.preview)
+
+            implementation(libs.jetbrains.compose.runtime)
+            implementation(libs.jetbrains.compose.foundation)
+            implementation(libs.jetbrains.compose.material3)
+            implementation(libs.jetbrains.compose.ui)
+            implementation(libs.jetbrains.compose.components.resources)
+            implementation(libs.androidx.lifecycle.viewmodelCompose)
+            implementation(libs.androidx.lifecycle.runtimeCompose)
+
         }
+
         commonTest.dependencies {
             implementation(libs.kotlin.test)
             implementation(libs.junit)
-        }
-        jvmMain.dependencies {
-//            implementation(libs.kotlinx.coroutinesSwing)
-        }
-        iosMain.dependencies {
-            implementation(libs.ktor.client.ios)
         }
     }
 }
@@ -79,6 +84,10 @@ android {
     defaultConfig {
         minSdk = libs.versions.android.minSdk.get().toInt()
     }
+}
+
+dependencies {
+    debugImplementation(libs.jetbrains.compose.ui.tooling)
 }
 
 //compose.desktop {

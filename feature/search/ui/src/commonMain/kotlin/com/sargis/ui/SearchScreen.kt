@@ -72,8 +72,7 @@ fun SearchScreenContent(
 
         if (uiState.isLoading) {
             Box(
-                modifier = Modifier
-                    .padding(innerPadding)
+                modifier = Modifier.padding(innerPadding)
                     .fillMaxSize(),
                 contentAlignment = Alignment.Center
             ) {
@@ -83,8 +82,7 @@ fun SearchScreenContent(
 
         if (uiState.error.isNotEmpty()) {
             Box(
-                modifier = Modifier
-                    .padding(innerPadding)
+                modifier = Modifier.padding(innerPadding)
                     .fillMaxSize(),
                 contentAlignment = Alignment.Center
             ) {
@@ -94,8 +92,7 @@ fun SearchScreenContent(
 
         uiState.data?.let { results ->
             LazyColumn(
-                modifier = Modifier
-                    .padding(innerPadding)
+                modifier = Modifier.padding(innerPadding)
                     .fillMaxSize()
             ) {
                 items(

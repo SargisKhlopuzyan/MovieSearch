@@ -44,6 +44,7 @@ kotlin {
         }
         jvmMain.dependencies {
 //            implementation(libs.kotlinx.coroutinesSwing)
+            implementation(libs.ktor.client.desktop)
         }
         iosMain.dependencies {
             implementation(libs.ktor.client.ios)
