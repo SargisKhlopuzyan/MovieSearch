@@ -51,6 +51,8 @@ kotlin {
 
             implementation(project.dependencies.platform(libs.androidx.compose.bom))
 
+//            implementation(libs.androidx.compose.material.icons.extended)
+
             // implementation(libs.jetbrains.compose.ui.tooling)
             implementation(libs.jetbrains.compose.ui.tooling.preview)
 

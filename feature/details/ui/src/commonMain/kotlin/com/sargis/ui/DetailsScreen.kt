@@ -10,9 +10,13 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material3.CircularProgressIndicator
+import androidx.compose.material3.ExperimentalMaterial3Api
+import androidx.compose.material3.Icon
+import androidx.compose.material3.IconButton
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
+import androidx.compose.material3.TopAppBar
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
@@ -23,11 +27,18 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
+import bookpedia.feature.details.ui.generated.resources.Res
+import bookpedia.feature.details.ui.generated.resources.compose_multiplatform
 import coil3.compose.SubcomposeAsyncImage
+import org.jetbrains.compose.resources.painterResource
 import org.koin.compose.viewmodel.koinViewModel
 
 @Composable
-fun DetailsScreen(modifier: Modifier = Modifier, id: String) {
+fun DetailsScreen(
+    modifier: Modifier = Modifier,
+    id: String,
+    onBackClick: () -> Unit
+) {
 
     val viewModel = koinViewModel<DetailsViewModel>()
     val uiState by viewModel.uiState.collectAsStateWithLifecycle()
@@ -38,16 +49,36 @@ fun DetailsScreen(modifier: Modifier = Modifier, id: String) {
 
     DetailsScreenContent(
         modifier = modifier,
-        uiState = uiState
+        uiState = uiState,
+        onBackClick = onBackClick
     )
-
 }
 
+@OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun DetailsScreenContent(modifier: Modifier = Modifier, uiState: DetailsUiState) {
-
-    Scaffold { innerPadding ->
-
+fun DetailsScreenContent(
+    modifier: Modifier = Modifier,
+    uiState: DetailsUiState,
+    onBackClick: () -> Unit
+) {
+    Scaffold(
+        modifier = modifier,
+        topBar = {
+            TopAppBar(
+                title = {
+                    Text(text = "Movie Details")
+                },
+                navigationIcon = {
+                    IconButton(onClick = onBackClick) {
+                        Icon(
+                            painter = painterResource(resource = Res.drawable.compose_multiplatform),
+                            contentDescription = "Back"
+                        )
+                    }
+                }
+            )
+        }
+    ) { innerPadding ->
         when {
             uiState.isLoading -> {
                 Box(
@@ -141,5 +172,5 @@ fun DetailsScreenContent(modifier: Modifier = Modifier, uiState: DetailsUiState)
 fun DetailsScreenContentPreview() {
     DetailsScreenContent(
         uiState = DetailsUiState(),
-    )
+    ) {}
 }

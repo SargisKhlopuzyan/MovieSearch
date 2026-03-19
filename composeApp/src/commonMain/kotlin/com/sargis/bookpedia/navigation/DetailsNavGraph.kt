@@ -25,9 +25,11 @@ object DetailsNavGraph : BaseNavGraph {
         navGraphBuilder: NavGraphBuilder
     ) {
         navGraphBuilder.navigation<Dest.Root>(startDestination = Dest.Details::class) {
-            composable<Dest.Details> {
-                val id = it.toRoute<Dest.Details>().movieId
-                DetailsScreen(modifier, id)
+            composable<Dest.Details> { navBackStackEntry ->
+                val id = navBackStackEntry.toRoute<Dest.Details>().movieId
+                DetailsScreen(modifier, id) {
+                    navController.popBackStack()
+                }
             }
         }
     }

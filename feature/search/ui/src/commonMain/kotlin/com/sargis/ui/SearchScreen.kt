@@ -3,13 +3,17 @@ package com.sargis.ui
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.WindowInsets
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.safeDrawing
+import androidx.compose.foundation.layout.windowInsetsPadding
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.CircularProgressIndicator
+import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
 import androidx.compose.material3.TextField
@@ -46,6 +50,7 @@ fun SearchScreen(
     )
 }
 
+@OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun SearchScreenContent(
     modifier: Modifier = Modifier,
@@ -56,7 +61,9 @@ fun SearchScreenContent(
 ) {
 
     Scaffold(
-        modifier = modifier.fillMaxSize(),
+        modifier = modifier
+            .fillMaxSize()
+            .windowInsetsPadding(WindowInsets.safeDrawing),
         topBar = {
             TextField(
                 value = query, onQueryChange,
@@ -72,7 +79,8 @@ fun SearchScreenContent(
 
         if (uiState.isLoading) {
             Box(
-                modifier = Modifier.padding(innerPadding)
+                modifier = Modifier
+                    .padding(innerPadding)
                     .fillMaxSize(),
                 contentAlignment = Alignment.Center
             ) {
@@ -82,7 +90,8 @@ fun SearchScreenContent(
 
         if (uiState.error.isNotEmpty()) {
             Box(
-                modifier = Modifier.padding(innerPadding)
+                modifier = Modifier
+                    .padding(innerPadding)
                     .fillMaxSize(),
                 contentAlignment = Alignment.Center
             ) {
@@ -92,7 +101,8 @@ fun SearchScreenContent(
 
         uiState.data?.let { results ->
             LazyColumn(
-                modifier = Modifier.padding(innerPadding)
+                modifier = Modifier
+                    .padding(innerPadding)
                     .fillMaxSize()
             ) {
                 items(
