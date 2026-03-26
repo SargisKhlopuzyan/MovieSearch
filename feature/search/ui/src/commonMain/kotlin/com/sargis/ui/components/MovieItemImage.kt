@@ -73,5 +73,8 @@ fun MovieItemImage(
 @Preview
 @Composable
 fun MovieItemImagePreview() {
-    MovieItemImage(mockMovie.imageUrl) {}
+    MovieItemImage(
+        imageUrl = mockMovie.imageUrl,
+        onClick = {}
+    )
 }

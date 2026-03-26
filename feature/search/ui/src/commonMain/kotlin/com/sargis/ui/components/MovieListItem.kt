@@ -30,9 +30,13 @@ import com.sargis.domain.model.Movie
 import kotlin.math.round
 
 @Composable
-fun MovieItem(movie: Movie, onClick: () -> Unit) {
+fun MovieListItem(
+    modifier: Modifier,
+    movie: Movie,
+    onClick: () -> Unit
+) {
     Surface(
-        modifier = Modifier.clickable(onClick = onClick),
+        modifier = modifier.clickable(onClick = onClick),
         shape = RoundedCornerShape(12.dp),
         color = LightBlue.copy(alpha = 0.2f)
     ) {
@@ -98,6 +102,10 @@ fun MovieItem(movie: Movie, onClick: () -> Unit) {
 
 @Preview
 @Composable
-fun MovieItemPreview() {
-    MovieItem(mockMovie) {}
+fun MovieListItemPreview() {
+    MovieListItem(
+        modifier = Modifier,
+        movie = mockMovie,
+        onClick = {}
+    )
 }

@@ -107,8 +107,7 @@ private fun SearchScreenContent(
             MovieList(
                 modifier = Modifier
                     .padding(innerPadding)
-                    .fillMaxSize()
-                    .padding(12.dp),
+                    .fillMaxSize(),
                 movies = movies,
                 onClick = onClick
             )
