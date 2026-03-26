@@ -7,9 +7,11 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.statusBarsPadding
 import androidx.compose.foundation.layout.widthIn
+import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.CircularProgressIndicator
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Scaffold
+import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
@@ -20,6 +22,7 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import com.sargis.coreui.DarkBlue
+import com.sargis.coreui.DesertWhite
 import com.sargis.ui.components.MovieList
 import com.sargis.ui.components.MovieSearchBar
 import org.koin.compose.viewmodel.koinViewModel
@@ -80,37 +83,45 @@ private fun SearchScreenContent(
             )
         }
     ) { innerPadding ->
-
-        if (uiState.isLoading) {
-            Box(
-                modifier = Modifier
-                    .padding(innerPadding)
-                    .fillMaxSize(),
-                contentAlignment = Alignment.Center
-            ) {
-                CircularProgressIndicator()
-            }
-        }
-
-        if (uiState.error != null) {
-            Box(
-                modifier = Modifier
-                    .padding(innerPadding)
-                    .fillMaxSize(),
-                contentAlignment = Alignment.Center
-            ) {
-                Text(text = uiState.error.asString())
-            }
-        }
-
-        uiState.movies?.let { movies ->
-            MovieList(
-                modifier = Modifier
-                    .padding(innerPadding)
-                    .fillMaxSize(),
-                movies = movies,
-                onClick = onClick
+        Surface(
+            modifier = Modifier
+                .fillMaxSize()
+                .background(DarkBlue)
+                .padding(innerPadding),
+            color = DesertWhite,
+            shape = RoundedCornerShape(
+                topStart = 32.dp,
+                topEnd = 32.dp
             )
+        ) {
+            if (uiState.isLoading) {
+                Box(
+                    modifier = Modifier
+                        .fillMaxSize(),
+                    contentAlignment = Alignment.Center
+                ) {
+                    CircularProgressIndicator()
+                }
+            }
+
+            if (uiState.error != null) {
+                Box(
+                    modifier = Modifier
+                        .fillMaxSize(),
+                    contentAlignment = Alignment.Center
+                ) {
+                    Text(text = uiState.error.asString())
+                }
+            }
+
+            uiState.movies?.let { movies ->
+                MovieList(
+                    modifier = Modifier
+                        .fillMaxSize(),
+                    movies = movies,
+                    onClick = onClick
+                )
+            }
         }
     }
 }
