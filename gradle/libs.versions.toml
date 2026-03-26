@@ -10,11 +10,12 @@ androidxJunit = "1.3.0"
 espressoCore = "3.7.0"
 junit = "4.13.2"
 
-androidx-lifecycle = "2.9.6"
-componentsResources = "1.10.2"
-composeMultiplatform = "1.10.2"
-foundation = "1.10.2"
-kmpObservableviewmodelCore = "1.0.2"
+androidx-lifecycle = "2.10.0"
+componentsResources = "1.10.3"
+composeMultiplatform = "1.10.3"
+foundation = "1.10.3"
+kmpObservableviewmodelCore = "1.0.3"
+nativecoroutines = "1.0.2"
 kotlin = "2.3.20"
 
 kotlinx-coroutines = "1.10.2"
@@ -24,7 +25,7 @@ ktor = "3.4.1"
 material3Version = "1.9.0"
 #materialIconsExtended = "1.7.8"
 
-runtime = "1.10.2"
+runtime = "1.10.3"
 ksp = "2.2.0-2.0.2"
 androidx-room = "2.8.4"
 
@@ -32,7 +33,8 @@ coil = "3.4.0"
 
 composeBom = "2026.03.00"
 
-ui = "1.10.2"
+ui = "1.10.3"
+material = "1.13.0"
 
 [libraries]
 
@@ -60,7 +62,7 @@ ktor-client-core = { module = "io.ktor:ktor-client-core", version.ref = "ktor" }
 ktor-client-android = { module = "io.ktor:ktor-client-okhttp", version.ref = "ktor" }
 ktor-client-ios = { module = "io.ktor:ktor-client-darwin", version.ref = "ktor" }
 ktor-client-desktop = { module = "io.ktor:ktor-client-cio", version.ref = "ktor" }
-ktor-client-logging = { module = "io.ktor:ktor-client-logging", version.ref = "ktor" }
+#ktor-client-logging = { module = "io.ktor:ktor-client-logging", version.ref = "ktor" }
 ktor-client-content-negotiation = { module = "io.ktor:ktor-client-content-negotiation", version.ref = "ktor" }
 ktor-client-serialization = { module = "io.ktor:ktor-serialization-kotlinx-json", version.ref = "ktor" }
 
@@ -78,20 +80,20 @@ androidx-lifecycle-runtimeCompose = { module = "org.jetbrains.androidx.lifecycle
 
 androidx-compose-bom = { group = "androidx.compose", name = "compose-bom", version.ref = "composeBom" }
 junit = { group = "junit", name = "junit", version.ref = "junit" }
-androidx-junit = { group = "androidx.test.ext", name = "junit", version.ref = "androidxJunit" }
-androidx-espresso-core = { group = "androidx.test.espresso", name = "espresso-core", version.ref = "espressoCore" }
+#androidx-junit = { group = "androidx.test.ext", name = "junit", version.ref = "androidxJunit" }
+#androidx-espresso-core = { group = "androidx.test.espresso", name = "espresso-core", version.ref = "espressoCore" }
 jetbrains-compose-runtime = { module = "org.jetbrains.compose.runtime:runtime", version.ref = "runtime" }
+#material = { group = "com.google.android.material", name = "material", version.ref = "material" }
 
 
 [plugins]
 androidApplication = { id = "com.android.application", version.ref = "agp" }
 androidLibrary = { id = "com.android.library", version.ref = "agp" }
 composeMultiplatform = { id = "org.jetbrains.compose", version.ref = "composeMultiplatform" }
-composeCompiler = { id = "org.jetbrains.kotlin.plugin.compose", version.ref = "kotlin" }
-kotlinMultiplatform = { id = "org.jetbrains.kotlin.multiplatform", version.ref = "kotlin" }
-
-kotlinx-serialization = { id = "org.jetbrains.kotlin.plugin.serialization", version = "2.3.10" }
-native-coroutines = {id = "com.rickclephas.kmp.nativecoroutines",version= "1.0.1"}
-ksp = { id = "com.google.devtools.ksp", version.ref = "ksp" }
-room = { id = "androidx.room", version.ref = "androidx-room" }
 kotlin-android = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }
+kotlinMultiplatform = { id = "org.jetbrains.kotlin.multiplatform", version.ref = "kotlin" }
+composeCompiler = { id = "org.jetbrains.kotlin.plugin.compose", version.ref = "kotlin" }
+kotlinx-serialization = { id = "org.jetbrains.kotlin.plugin.serialization", version.ref = "kotlin" }
+native-coroutines = {id = "com.rickclephas.kmp.nativecoroutines",version.ref= "nativecoroutines"}
+ksp = { id = "com.google.devtools.ksp", version.ref = "ksp" }
+#room = { id = "androidx.room", version.ref = "androidx-room" }

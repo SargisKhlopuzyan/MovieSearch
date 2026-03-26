@@ -53,7 +53,7 @@ kotlin {
 }
 
 android {
-    namespace = "com.sargis.bookpedia.corenetwork"
+    namespace = "com.sargis.bookpedia.core.network"
     compileSdk = libs.versions.android.compileSdk.get().toInt()
 
     compileOptions {

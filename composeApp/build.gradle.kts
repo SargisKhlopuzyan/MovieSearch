@@ -106,6 +106,7 @@ android {
 
 dependencies {
     debugImplementation(libs.jetbrains.compose.ui.tooling)
+    //"androidRuntimeClasspath"(libs.androidx.compose.ui.tooling)
 }
 
 compose.desktop {

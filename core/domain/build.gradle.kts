@@ -22,7 +22,6 @@ kotlin {
 
     sourceSets {
         commonMain.dependencies {
-            implementation(projects.core.domain)
             implementation(libs.koin.core)
         }
         commonTest.dependencies {
@@ -33,7 +32,7 @@ kotlin {
 }
 
 android {
-    namespace = "com.sargis.bookpedia.feature.search.domain"
+    namespace = "com.sargis.bookpedia.core.domain"
     compileSdk = libs.versions.android.compileSdk.get().toInt()
     compileOptions {
         sourceCompatibility = JavaVersion.VERSION_11

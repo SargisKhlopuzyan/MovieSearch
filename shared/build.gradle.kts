@@ -24,7 +24,7 @@ kotlin {
         iosTarget.binaries.framework {
             baseName = "Shared"
 
-            export(project(":core-network"))
+            export(project(":core:network"))
 
             export(project(":feature:search:data"))
             export(project(":feature:search:domain"))
@@ -48,7 +48,7 @@ kotlin {
         }
 
         commonMain.dependencies {
-            api(projects.coreNetwork)
+            api(projects.core.network)
 
             api(projects.feature.search.data)
             api(projects.feature.search.domain)
@@ -69,7 +69,7 @@ kotlin {
 }
 
 android {
-    namespace = "com.sargis.shared"
+    namespace = "com.sargis.bookpedia.shared"
     compileSdk = libs.versions.android.compileSdk.get().toInt()
     compileOptions {
         sourceCompatibility = JavaVersion.VERSION_11

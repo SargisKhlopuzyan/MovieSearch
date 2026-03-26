@@ -38,6 +38,7 @@ kotlin {
         }
 
         commonMain.dependencies {
+            implementation(projects.core.ui)
             implementation(projects.feature.search.domain)
 
             implementation(libs.kmp.observableviewmodel.core)
@@ -84,6 +85,7 @@ android {
 
 dependencies {
     debugImplementation(libs.jetbrains.compose.ui.tooling)
+    //"androidRuntimeClasspath"(libs.androidx.compose.ui.tooling)
 }
 
 //compose.desktop {

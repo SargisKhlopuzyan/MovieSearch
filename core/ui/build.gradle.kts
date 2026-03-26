@@ -34,13 +34,10 @@ kotlin {
             implementation(libs.androidx.core.ktx)
             implementation(libs.androidx.appcompat)
             implementation(libs.androidx.activity.compose)
-            //            implementation(project.dependencies.platform(libs.androidx.compose.bom))
+            // implementation(project.dependencies.platform(libs.androidx.compose.bom))
         }
 
         commonMain.dependencies {
-            implementation(projects.core.ui)
-            implementation(projects.feature.details.domain)
-
             implementation(libs.kmp.observableviewmodel.core)
 
             implementation(libs.koin.core)
@@ -52,7 +49,7 @@ kotlin {
 
             implementation(project.dependencies.platform(libs.androidx.compose.bom))
 
-//            implementation(libs.androidx.compose.material.icons.extended)
+            // implementation(libs.androidx.compose.material.icons.extended)
 
             // implementation(libs.jetbrains.compose.ui.tooling)
             implementation(libs.jetbrains.compose.ui.tooling.preview)
@@ -74,7 +71,7 @@ kotlin {
 }
 
 android {
-    namespace = "com.sargis.bookpedia.feature.details.ui"
+    namespace = "com.sargis.bookpedia.core.ui"
     compileSdk = libs.versions.android.compileSdk.get().toInt()
     compileOptions {
         sourceCompatibility = JavaVersion.VERSION_11
