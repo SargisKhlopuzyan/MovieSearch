@@ -20,6 +20,7 @@ import androidx.compose.ui.unit.dp
 import bookpedia.feature.search.ui.generated.resources.Res
 import bookpedia.feature.search.ui.generated.resources.movie_error
 import coil3.compose.SubcomposeAsyncImage
+import com.sargis.domain.mock.mockMovie
 import org.jetbrains.compose.resources.painterResource
 
 @Composable

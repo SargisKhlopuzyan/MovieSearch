@@ -33,7 +33,7 @@ import com.sargis.coreui.SandYellow
 import org.jetbrains.compose.resources.stringResource
 
 @Composable
-fun MoviesSearchBar(
+fun MovieSearchBar(
     searchQuery: String,
     onSearchQueryChange: (String) -> Unit,
     onImeSearch: () -> Unit,
@@ -46,6 +46,12 @@ fun MoviesSearchBar(
         )
     ) {
         OutlinedTextField(
+            modifier = modifier
+                .background(
+                    shape = RoundedCornerShape(100),
+                    color = DesertWhite
+                )
+                .minimumInteractiveComponentSize(),
             value = searchQuery,
             onValueChange = onSearchQueryChange,
             singleLine = true,
@@ -86,12 +92,6 @@ fun MoviesSearchBar(
                     }
                 }
             },
-            modifier = modifier
-                .background(
-                    shape = RoundedCornerShape(100),
-                    color = DesertWhite
-                )
-                .minimumInteractiveComponentSize(),
             keyboardActions = KeyboardActions(
                 onSearch = {
                     onImeSearch()
@@ -107,9 +107,9 @@ fun MoviesSearchBar(
 
 @Preview(showBackground = true)
 @Composable
-fun MoviesSearchBarPreview() {
+fun MovieSearchBarPreview() {
     MaterialTheme {
-        MoviesSearchBar(
+        MovieSearchBar(
             searchQuery = "",
             onSearchQueryChange = {},
             onImeSearch = {},

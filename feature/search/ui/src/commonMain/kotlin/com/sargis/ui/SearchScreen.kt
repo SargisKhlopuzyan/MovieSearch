@@ -21,7 +21,7 @@ import androidx.compose.ui.unit.dp
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import com.sargis.coreui.DarkBlue
 import com.sargis.ui.components.MovieList
-import com.sargis.ui.components.MoviesSearchBar
+import com.sargis.ui.components.MovieSearchBar
 import org.koin.compose.viewmodel.koinViewModel
 
 @Composable
@@ -62,7 +62,7 @@ private fun SearchScreenContent(
     Scaffold(
         modifier = modifier.fillMaxSize(),
         topBar = {
-            MoviesSearchBar(
+            MovieSearchBar(
                 searchQuery = query,
                 onSearchQueryChange = {
                     onAction(MovesAction.OnSearchQueryChange(it))

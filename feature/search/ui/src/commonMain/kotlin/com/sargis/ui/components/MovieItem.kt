@@ -25,6 +25,7 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.sargis.coreui.LightBlue
 import com.sargis.coreui.SandYellow
+import com.sargis.domain.mock.mockMovie
 import com.sargis.domain.model.Movie
 import kotlin.math.round
 
@@ -39,7 +40,7 @@ fun MovieItem(movie: Movie, onClick: () -> Unit) {
             modifier = Modifier
                 .padding(16.dp)
                 .fillMaxWidth(),
-            //                .height(IntrinsicSize.Min)
+            //.height(IntrinsicSize.Min),
             verticalAlignment = Alignment.CenterVertically
         ) {
             MovieItemImage(movie.imageUrl, onClick)
@@ -100,12 +101,3 @@ fun MovieItem(movie: Movie, onClick: () -> Unit) {
 fun MovieItemPreview() {
     MovieItem(mockMovie) {}
 }
-
-val mockMovie = Movie(
-    "1",
-    "Harry Potter",
-    "",
-    "2014-10-23",
-    7.2098,
-    1
-)

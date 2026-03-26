@@ -8,6 +8,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import com.sargis.domain.mock.mockMovies
 import com.sargis.domain.model.Movie
 
 @Composable
@@ -39,7 +40,7 @@ fun MovieList(
 fun MovieListPreview() {
     MovieList(
         modifier = Modifier.fillMaxSize().padding(12.dp),
-        movies = listOf(mockMovie, mockMovie.copy(id = "2")),
+        movies = mockMovies,
         onClick = {}
     )
 }
