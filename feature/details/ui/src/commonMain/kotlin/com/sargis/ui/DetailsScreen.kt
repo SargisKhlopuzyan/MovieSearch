@@ -115,7 +115,6 @@ fun DetailsScreenContent(
                         .fillMaxSize()
                         .verticalScroll(rememberScrollState())
                 ) {
-
                     SubcomposeAsyncImage(
                         modifier = Modifier
                             .fillMaxWidth()

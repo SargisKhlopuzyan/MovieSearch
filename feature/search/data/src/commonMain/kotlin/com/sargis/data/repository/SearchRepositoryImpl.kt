@@ -13,7 +13,10 @@ class SearchRepositoryImpl(
                 Movie(
                     id = dto.id.toString(),
                     title = dto.title,
-                    imageUrl = buildImageUrl(dto.poster_path)
+                    imageUrl = buildImageUrl(dto.poster_path),
+                    releaseDate = dto.release_date,
+                    averageVote = dto.vote_average,
+                    voteCount = dto.vote_count
                 )
             }
         }
