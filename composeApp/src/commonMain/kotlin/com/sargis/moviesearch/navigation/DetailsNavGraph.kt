@@ -6,7 +6,7 @@ import androidx.navigation.NavHostController
 import androidx.navigation.compose.composable
 import androidx.navigation.navigation
 import androidx.navigation.toRoute
-import com.sargis.moviesearch.ui.DetailsScreen
+import com.sargis.moviesearch.feature.details.ui.DetailsScreen
 import kotlinx.serialization.Serializable
 
 object DetailsNavGraph : BaseNavGraph {

@@ -5,7 +5,7 @@ import androidx.navigation.NavGraphBuilder
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.composable
 import androidx.navigation.navigation
-import com.sargis.moviesearch.ui.SearchScreen
+import com.sargis.moviesearch.feature.search.ui.SearchScreen
 import kotlinx.serialization.Serializable
 
 object SearchNavGraph : BaseNavGraph {
