@@ -19,6 +19,7 @@ kotlin {
     iosSimulatorArm64()
 
     jvm()
+//    jvm("desktop")
 
     sourceSets {
         commonMain.dependencies {
@@ -32,7 +33,7 @@ kotlin {
 }
 
 android {
-    namespace = "com.sargis.bookpedia.core.domain"
+    namespace = "com.sargis.moviesearch.core.domain"
     compileSdk = libs.versions.android.compileSdk.get().toInt()
     compileOptions {
         sourceCompatibility = JavaVersion.VERSION_11

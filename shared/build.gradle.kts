@@ -40,6 +40,7 @@ kotlin {
     }
 
     jvm()
+//    jvm("desktop")
 
     sourceSets {
 
@@ -48,15 +49,17 @@ kotlin {
         }
 
         commonMain.dependencies {
-            api(projects.core.network)
+            // api
+            implementation(projects.core.network)
 
-            api(projects.feature.search.data)
-            api(projects.feature.search.domain)
+            implementation(projects.feature.search.data)
+            implementation(projects.feature.search.domain)
             api(projects.feature.search.ui)
 
-            api(projects.feature.details.data)
-            api(projects.feature.details.domain)
+            implementation(projects.feature.details.data)
+            implementation(projects.feature.details.domain)
             api(projects.feature.details.ui)
+            // - end of api
 
             implementation(libs.koin.core)
         }
@@ -69,7 +72,7 @@ kotlin {
 }
 
 android {
-    namespace = "com.sargis.bookpedia.shared"
+    namespace = "com.sargis.moviesearch.shared"
     compileSdk = libs.versions.android.compileSdk.get().toInt()
     compileOptions {
         sourceCompatibility = JavaVersion.VERSION_11

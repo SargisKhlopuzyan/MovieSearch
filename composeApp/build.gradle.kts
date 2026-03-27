@@ -35,17 +35,11 @@ kotlin {
 
     sourceSets {
         androidMain.dependencies {
-//            implementation(projects.feature.search.ui)
-
             implementation(libs.androidx.activity.compose)
             implementation(libs.kotlinx.coroutines.android)
         }
 
         commonMain.dependencies {
-            implementation(projects.feature.search.ui)
-            implementation(projects.feature.search.data)
-            implementation(projects.feature.search.domain)
-
             implementation(projects.shared)
 
             implementation(libs.jetbrains.compose.runtime)
@@ -66,11 +60,16 @@ kotlin {
             implementation(libs.kotlin.test)
             implementation(libs.junit)
         }
-//        desktop.dependencies {
         jvmMain.dependencies {
             implementation(compose.desktop.currentOs)
             implementation(libs.kotlinx.coroutines.swing)
         }
+//        val desktopMain by getting {
+//            dependencies {
+//                implementation(compose.desktop.currentOs)
+//                implementation(libs.kotlinx.coroutines.swing)
+//            }
+//        }
         iosMain.dependencies {
 
         }
@@ -78,11 +77,11 @@ kotlin {
 }
 
 android {
-    namespace = "com.sargis.bookpedia"
+    namespace = "com.sargis.moviesearch"
     compileSdk = libs.versions.android.compileSdk.get().toInt()
 
     defaultConfig {
-        applicationId = "com.sargis.bookpedia"
+        applicationId = "com.sargis.moviesearch"
         minSdk = libs.versions.android.minSdk.get().toInt()
         targetSdk = libs.versions.android.targetSdk.get().toInt()
         versionCode = 1
@@ -111,11 +110,11 @@ dependencies {
 
 compose.desktop {
     application {
-        mainClass = "com.sargis.bookpedia.MainKt"
+        mainClass = "com.sargis.moviesearch.MainKt"
 
         nativeDistributions {
             targetFormats(TargetFormat.Dmg, TargetFormat.Msi, TargetFormat.Deb)
-            packageName = "com.sargis.bookpedia"
+            packageName = "com.sargis.moviesearch"
             packageVersion = "1.0.0"
         }
     }

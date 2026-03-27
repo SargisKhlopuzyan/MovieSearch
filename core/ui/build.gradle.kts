@@ -21,6 +21,7 @@ kotlin {
     iosSimulatorArm64()
 
     jvm()
+//    jvm("desktop")
 
     sourceSets {
 
@@ -71,7 +72,7 @@ kotlin {
 }
 
 android {
-    namespace = "com.sargis.bookpedia.core.ui"
+    namespace = "com.sargis.moviesearch.core.ui"
     compileSdk = libs.versions.android.compileSdk.get().toInt()
     compileOptions {
         sourceCompatibility = JavaVersion.VERSION_11
@@ -89,11 +90,11 @@ dependencies {
 
 //compose.desktop {
 //    application {
-//        mainClass = "com.sargis.bookpedia.MainKt"
+//        mainClass = "com.sargis.moviesearch.MainKt"
 //
 //        nativeDistributions {
 //            targetFormats(TargetFormat.Dmg, TargetFormat.Msi, TargetFormat.Deb)
-//            packageName = "com.sargis.bookpedia"
+//            packageName = "com.sargis.moviesearch"
 //            packageVersion = "1.0.0"
 //        }
 //    }

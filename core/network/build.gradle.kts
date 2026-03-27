@@ -19,6 +19,7 @@ kotlin {
     iosSimulatorArm64()
 
     jvm()
+    //    jvm("desktop")
 
 //    targets.withType<org.jetbrains.kotlin.gradle.plugin.mpp.KotlinNativeTarget> {
 //        binaries.all {
@@ -42,6 +43,11 @@ kotlin {
             implementation(libs.kotlin.test)
             implementation(libs.junit)
         }
+//        val desktopMain by getting {
+//            dependencies {
+//                implementation(libs.ktor.client.desktop)
+//            }
+//        }
         jvmMain.dependencies {
 //            implementation(libs.kotlinx.coroutinesSwing)
             implementation(libs.ktor.client.desktop)
@@ -53,7 +59,7 @@ kotlin {
 }
 
 android {
-    namespace = "com.sargis.bookpedia.core.network"
+    namespace = "com.sargis.moviesearch.core.network"
     compileSdk = libs.versions.android.compileSdk.get().toInt()
 
     compileOptions {
