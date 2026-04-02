@@ -101,9 +101,9 @@ fun DetailsScreenContent(
                 }
             }
 
-            uiState.data != null -> {
+            uiState.movieDetails != null -> {
 
-                val movieDetails = uiState.data
+                val movieDetails = uiState.movieDetails
 
                 Column(
                     modifier = Modifier

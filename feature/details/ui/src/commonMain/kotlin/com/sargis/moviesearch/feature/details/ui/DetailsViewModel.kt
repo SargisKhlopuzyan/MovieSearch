@@ -27,7 +27,7 @@ class DetailsViewModel(
             getMovieDetailsUseCase.execute(movieId)
                 .onSuccess { data ->
                     _uiState.update {
-                        DetailsUiState(isLoading = false, data = data)
+                        DetailsUiState(isLoading = false, movieDetails = data)
                     }
                 }.onError {
                     _uiState.update {

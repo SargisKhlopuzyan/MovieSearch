@@ -4,6 +4,7 @@ import com.sargis.moviesearch.feature.details.domain.model.MovieDetails
 
 data class DetailsUiState(
     val isLoading: Boolean = false,
+    val isFavorite: Boolean = false,
     val error: String = "",
-    val data: MovieDetails? = null
+    val movieDetails: MovieDetails? = null
 )
