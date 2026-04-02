@@ -52,8 +52,10 @@ kotlin {
 //            }
 //        }
         jvmMain.dependencies {
-//            implementation(libs.kotlinx.coroutinesSwing)
             implementation(libs.ktor.client.desktop)
+            implementation(libs.ktor.client.android)
+            implementation(libs.kotlinx.coroutines.swing)
+//            implementation(libs.kotlinx.coroutinesSwing)
         }
         iosMain.dependencies {
             // Darwin engine

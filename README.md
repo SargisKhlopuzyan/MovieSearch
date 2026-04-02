@@ -1,5 +1,11 @@
 This is a Kotlin Multiplatform project targeting Android, iOS, Desktop (JVM).
 
+### https://www.youtube.com/watch?v=xbF6nTpltXw
+### https://github.com/philipplackner/CMP-Bookpedia/tree/master
+
+### https://www.youtube.com/watch?v=WT9-4DXUqsM&t=753s
+### https://github.com/himanshuGaur684/KMP-MovieSearchApp-Multi-Module/tree/final-project/composeApp
+
 * [/composeApp](./composeApp/src) is for code that will be shared across your Compose Multiplatform applications.
   It contains several subfolders:
   - [commonMain](./composeApp/src/commonMain/kotlin) is for code that’s common for all targets.

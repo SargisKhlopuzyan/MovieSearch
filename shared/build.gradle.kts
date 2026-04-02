@@ -46,6 +46,7 @@ kotlin {
 
         androidMain.dependencies {
 //            implementation(projects.feature.search.ui)
+            implementation(libs.koin.android)
         }
 
         commonMain.dependencies {
