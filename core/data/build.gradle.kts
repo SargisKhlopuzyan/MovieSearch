@@ -38,6 +38,7 @@ kotlin {
             implementation(libs.ktor.client.core)
             implementation(libs.ktor.client.content.negotiation)
             implementation(libs.ktor.client.serialization)
+            implementation(libs.ktor.client.logging)
 
             implementation(libs.koin.core)
         }
@@ -55,6 +56,7 @@ kotlin {
             implementation(libs.ktor.client.desktop)
         }
         iosMain.dependencies {
+            // Darwin engine
             implementation(libs.ktor.client.ios)
         }
     }

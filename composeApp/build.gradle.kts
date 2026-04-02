@@ -8,6 +8,8 @@ plugins {
     alias(libs.plugins.composeMultiplatform)
     alias(libs.plugins.composeCompiler)
     alias(libs.plugins.kotlinx.serialization)
+    alias(libs.plugins.ksp)
+    alias(libs.plugins.room)
 }
 
 kotlin {
@@ -32,6 +34,10 @@ kotlin {
 
     jvm()
 //    jvm("desktop")
+
+    room {
+        schemaDirectory("$projectDir/schemas")
+    }
 
     sourceSets {
         androidMain.dependencies {
@@ -73,6 +79,10 @@ kotlin {
         iosMain.dependencies {
 
         }
+
+//        dependencies {
+//            ksp(libs.androidx.room.compiler)
+//        }
     }
 }
 
