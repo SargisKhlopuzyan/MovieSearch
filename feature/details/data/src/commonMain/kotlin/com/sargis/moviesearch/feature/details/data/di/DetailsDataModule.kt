@@ -8,7 +8,7 @@ import org.koin.dsl.module
 fun getDetailsDataModule(): Module {
     return module {
         single<DetailsRepository> {
-            DetailsRepositoryImpl(get())
+            DetailsRepositoryImpl(get(), get())
         }
     }
 }

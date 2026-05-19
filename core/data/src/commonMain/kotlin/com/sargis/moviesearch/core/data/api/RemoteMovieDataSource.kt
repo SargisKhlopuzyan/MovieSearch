@@ -6,6 +6,6 @@ import com.sargis.moviesearch.core.domain.DataError
 import com.sargis.moviesearch.core.domain.Result
 
 interface RemoteMovieDataSource {
-    suspend fun search(q: String): Result<SearchResponseDto, DataError.Remote>
-    suspend fun getMovieDetail(movieId: Int): Result<MovieDetailsResponseDto, DataError.Remote>
+    suspend fun searchMovie(q: String): Result<SearchResponseDto, DataError.Remote>
+    suspend fun getMovieDetail(movieId: Int): Result<MovieDetailsResponseDto, DataError>
 }

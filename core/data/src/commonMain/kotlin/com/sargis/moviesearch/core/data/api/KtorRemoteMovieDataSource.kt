@@ -13,7 +13,7 @@ import io.ktor.client.request.parameter
 class KtorRemoteMovieDataSource(
     private val httpClient: HttpClient
 ) : RemoteMovieDataSource {
-    override suspend fun search(q: String): Result<SearchResponseDto, DataError.Remote> {
+    override suspend fun searchMovie(q: String): Result<SearchResponseDto, DataError.Remote> {
         return safeCall<SearchResponseDto> {
             // https://api.themoviedb.org/3/search/movie?query=q
             httpClient.get("3/search/movie") {

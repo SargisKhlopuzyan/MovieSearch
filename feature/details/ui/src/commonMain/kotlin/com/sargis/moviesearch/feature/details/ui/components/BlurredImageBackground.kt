@@ -41,15 +41,14 @@ import com.sargis.moviesearch.core.ui.DarkBlue
 import com.sargis.moviesearch.core.ui.DesertWhite
 import com.sargis.moviesearch.core.ui.PulseAnimation
 import com.sargis.moviesearch.core.ui.SandYellow
-import moviesearch.designsystem.generated.resources.go_back
-import moviesearch.designsystem.generated.resources.movie_cover
 import moviesearch.designsystem.generated.resources.Res
+import moviesearch.designsystem.generated.resources.go_back
 import moviesearch.designsystem.generated.resources.mark_as_favorite
+import moviesearch.designsystem.generated.resources.movie_cover
 import moviesearch.designsystem.generated.resources.movie_error
 import moviesearch.designsystem.generated.resources.remove_from_favorites
 import org.jetbrains.compose.resources.painterResource
 import org.jetbrains.compose.resources.stringResource
-
 
 @Composable
 fun BlurredImageBackground(
@@ -138,18 +137,18 @@ fun BlurredImageBackground(
                 AnimatedContent(
                     targetState = imageLoadResult
                 ) { result ->
-                    when (result) {
-                        null -> Box(
-                            modifier = Modifier.fillMaxSize(),
-                            contentAlignment = Alignment.Center
-                        ) {
-                            PulseAnimation(
-                                modifier = Modifier
-                                    .size(60.dp)
-                            )
-                        }
-                        else -> {
-                            Box {
+                    Box {
+                        when (result) {
+                            null -> Box(
+                                modifier = Modifier.fillMaxSize(),
+                                contentAlignment = Alignment.Center
+                            ) {
+                                PulseAnimation(
+                                    modifier = Modifier
+                                        .size(60.dp)
+                                )
+                            }
+                            else -> {
                                 Image(
                                     painter = if (result.isSuccess) painter else {
                                         painterResource(Res.drawable.movie_error)
@@ -164,34 +163,34 @@ fun BlurredImageBackground(
                                         ContentScale.Fit
                                     }
                                 )
-                                IconButton(
-                                    onClick = onFavoriteClick,
-                                    modifier = Modifier
-                                        .align(Alignment.BottomEnd)
-                                        .background(
-                                            brush = Brush.radialGradient(
-                                                colors = listOf(
-                                                    SandYellow, Color.Transparent
-                                                ),
-                                                radius = 70f
-                                            )
-                                        )
-                                ) {
-                                    Icon(
-                                        imageVector = if (isFavorite) {
-                                            Icons.Filled.Favorite
-                                        } else {
-                                            Icons.Outlined.FavoriteBorder
-                                        },
-                                        tint = Color.Red,
-                                        contentDescription = if (isFavorite) {
-                                            stringResource(Res.string.remove_from_favorites)
-                                        } else {
-                                            stringResource(Res.string.mark_as_favorite)
-                                        }
-                                    )
-                                }
                             }
+                        }
+                        IconButton(
+                            onClick = onFavoriteClick,
+                            modifier = Modifier
+                                .align(Alignment.BottomEnd)
+                                .background(
+                                    brush = Brush.radialGradient(
+                                        colors = listOf(
+                                            SandYellow, Color.Transparent
+                                        ),
+                                        radius = 70f
+                                    )
+                                )
+                        ) {
+                            Icon(
+                                imageVector = if (isFavorite) {
+                                    Icons.Filled.Favorite
+                                } else {
+                                    Icons.Outlined.FavoriteBorder
+                                },
+                                tint = Color.Red,
+                                contentDescription = if (isFavorite) {
+                                    stringResource(Res.string.remove_from_favorites)
+                                } else {
+                                    stringResource(Res.string.mark_as_favorite)
+                                }
+                            )
                         }
                     }
                 }

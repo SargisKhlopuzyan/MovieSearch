@@ -5,7 +5,6 @@ data class MovieDetails(
     val title: String,
     val overview: String,
     val imageUrl: String,
-
     val originCountry: List<String>,
     val originalLanguage: String,
     val posterPath: String?,

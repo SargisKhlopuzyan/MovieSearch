@@ -41,7 +41,6 @@ kotlin {
         commonMain.dependencies {
             implementation(projects.core.ui)
             implementation(projects.designsystem)
-
             implementation(projects.feature.details.domain)
 
             implementation(libs.kmp.observableviewmodel.core)
@@ -50,12 +49,12 @@ kotlin {
             implementation(libs.koin.compose)
             implementation(libs.koin.compose.viewmodel)
 
+            implementation(libs.navigation.compose)
+
             implementation(libs.coil)
             implementation(libs.coil.ktor)
 
             implementation(project.dependencies.platform(libs.androidx.compose.bom))
-
-            // implementation(libs.androidx.compose.material.icons.extended)
 
             // implementation(libs.jetbrains.compose.ui.tooling)
             implementation(libs.jetbrains.compose.ui.tooling.preview)

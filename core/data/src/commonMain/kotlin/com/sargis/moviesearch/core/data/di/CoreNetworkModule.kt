@@ -1,8 +1,11 @@
 package com.sargis.moviesearch.core.data.di
 
+import androidx.sqlite.driver.bundled.BundledSQLiteDriver
 import com.sargis.moviesearch.core.data.api.KtorRemoteMovieDataSource
 import com.sargis.moviesearch.core.data.api.RemoteMovieDataSource
 import com.sargis.moviesearch.core.data.client.HttpClientFactory
+import com.sargis.moviesearch.core.data.database.DatabaseFactory
+import com.sargis.moviesearch.core.data.database.FavoriteMovieDatabase
 import org.koin.core.module.Module
 import org.koin.core.module.dsl.singleOf
 import org.koin.dsl.bind
@@ -25,10 +28,10 @@ fun getCoreDataModule() = module {
 //    singleOf(::KtorRemoteMovieDataSource)
     singleOf(::KtorRemoteMovieDataSource).bind<RemoteMovieDataSource>()
 
-//    single {
-//        get<DatabaseFactory>().create()
-//            .setDriver(BundledSQLiteDriver())
-//            .build()
-//    }
-//    single { get<FavoriteBookDatabase>().favoriteBookDao }
+    single {
+        get<DatabaseFactory>().create()
+            .setDriver(BundledSQLiteDriver())
+            .build()
+    }
+    single { get<FavoriteMovieDatabase>().favoriteMovieDao }
 }

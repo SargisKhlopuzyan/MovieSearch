@@ -8,7 +8,7 @@ import org.koin.dsl.module
 actual fun getSearchUiModule(): Module {
     return module {
         viewModel {
-            SearchViewModel(get())
+            SearchViewModel(get(), get())
         }
     }
 }
